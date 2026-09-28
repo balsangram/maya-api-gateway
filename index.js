@@ -5,7 +5,7 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 import swaggerUi from "swagger-ui-express";
 
 import swaggerSpec from "./config/swagger.js";
-
+import { checkAllServices } from "./config/cron/healthCheck.cron.js";
 dotenv.config();
 
 const app = express();
@@ -128,4 +128,6 @@ const server = http.createServer(app);
 server.listen(PORT, () => {
   console.log(`API Gateway running on http://localhost:${PORT}`);
   console.log(`Socket.IO proxy → ${CHAT_URL}/socket.io`);
+
+  checkAllServices();
 });
