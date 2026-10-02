@@ -96,7 +96,7 @@ app.use(
 );
 
 // Post Service → 7003
-app.use(["/api/post", "/api/posts", "/post/health"], postProxy);
+app.use(["/api/post", "/api/posts","/api/advertisement", "/post/health"], postProxy);
 
 app.get("/", (_req, res) => {
   res.json({
